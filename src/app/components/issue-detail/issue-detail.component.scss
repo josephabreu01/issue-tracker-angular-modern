@@ -1,0 +1,68 @@
+.issue-detail-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .content {
+    margin-top: 20px;
+  }
+
+  mat-card {
+    padding: 20px;
+  }
+
+  .loading-spinner, .no-issue-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: grey;
+  }
+
+  mat-card-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  mat-card-subtitle {
+    color: grey;
+    margin-bottom: 15px;
+  }
+
+  mat-card-content p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .status-badge, .priority-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    font-size: 0.8em;
+  }
+
+  .status-open { background-color: #4CAF50; } // Green
+  .status-in { background-color: #2196F3; } // Blue
+  .status-resolved { background-color: #FFC107; } // Amber
+  .status-closed { background-color: #F44336; } // Red
+
+  .priority-low { background-color: #8BC34A; } // Light Green
+  .priority-medium { background-color: #FFEB3B; color: #333; } // Yellow
+  .priority-high { background-color: #FF9800; } // Orange
+  .priority-critical { background-color: #E91E63; } // Pink
+}

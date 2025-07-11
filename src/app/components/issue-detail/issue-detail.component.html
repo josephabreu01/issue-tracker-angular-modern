@@ -1,0 +1,53 @@
+<div class="issue-detail-container">
+  <mat-toolbar color="primary">
+    <span>Detalles</span>
+    <span class="spacer"></span>
+    <button mat-icon-button routerLink="/issues">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="content">
+    @if (isLoading) {
+    <div class="loading-spinner">
+      <mat-spinner></mat-spinner>
+      <p>Loading issue details...</p>
+    </div>
+    } @else if (issue) {
+    <mat-card class="mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title>{{ issue.title }}</mat-card-title>
+        <mat-card-subtitle>ID: {{ issue.id }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Description:</strong> {{ issue.description }}</p>
+        <p><strong>Status:</strong> <span class="status-badge status-{{issue.status | lowercase}}">{{ issue.status
+            }}</span></p>
+        <p><strong>Priority:</strong> <span class="priority-badge priority-{{issue.priority | lowercase}}">{{
+            issue.priority }}</span></p>
+        <p><strong>Assigned To:</strong> {{ issue.assignedTo || 'Unassigned' }}</p>
+        @if (issue.createdAt) {
+        <p><strong>Created At:</strong> {{ issue.createdAt | date:'medium' }}</p>
+        }
+        @if (issue.updatedAt) {
+        <p><strong>Last Updated:</strong> {{ issue.updatedAt | date:'medium' }}</p>
+        }
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="accent" [routerLink]="['/issues/edit', issue.id]">
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+        @if (authService.isAdmin()) {
+        <button mat-raised-button color="warn" (click)="deleteIssue()">
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+        }
+      </mat-card-actions>
+    </mat-card>
+    } @else {
+    <div class="no-issue-message">
+      <p>Issue not found.</p>
+    </div>
+    }
+  </div>
+</div>

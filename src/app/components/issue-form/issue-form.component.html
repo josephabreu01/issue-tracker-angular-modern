@@ -1,0 +1,115 @@
+<div class="issue-form-container">
+  <mat-toolbar color="primary">
+    <span>{{ isEditMode ? 'Editar Mantenimiento' : 'Crear Nuevo Mantenimiento' }}</span>
+    <span class="spacer"></span>
+    <button mat-icon-button routerLink="/issues">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="form-content">
+    @if (isLoading && isEditMode) {
+      <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+        <p>Loading issue data...</p>
+      </div>
+    }
+
+    @if (!isLoading || !isEditMode) {
+      <form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
+        <mat-card>
+          <mat-card-content>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="title" required>
+              @if (issueForm.get('title')?.hasError('required') && issueForm.get('title')?.touched) {
+                <mat-error>
+                  Title is required.
+                </mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="description" rows="5" required></textarea>
+              @if (issueForm.get('description')?.hasError('required') && issueForm.get('description')?.touched) {
+                <mat-error>
+                  Description is required.
+                </mat-error>
+              }
+            </mat-form-field>
+
+            <div class="form-row">
+              <mat-form-field appearance="outline" class="half-width">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status" required>
+                  @for (status of statuses; track status) {
+                    <mat-option [value]="status">
+                      {{status}}
+                    </mat-option>
+                  }
+                </mat-select>
+                @if (issueForm.get('status')?.hasError('required') && issueForm.get('status')?.touched) {
+                  <mat-error>
+                    Status is required.
+                  </mat-error>
+                }
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="half-width">
+                <mat-label>Priority</mat-label>
+                <mat-select formControlName="priority" required>
+                  @for (priority of priorities; track priority) {
+                    <mat-option [value]="priority">
+                      {{priority}}
+                    </mat-option>
+                  }
+                </mat-select>
+                @if (issueForm.get('priority')?.hasError('required') && issueForm.get('priority')?.touched) {
+                  <mat-error>
+                    Priority is required.
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+
+            @if (authService.isAdmin()) {
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Assign To User</mat-label>
+                <mat-select formControlName="assignedToUsername">
+                  <mat-option value="">Unassigned</mat-option> @for (username of genericUsernames; track username) {
+                    <mat-option [value]="username">
+                      {{username}}
+                    </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            } @else {
+              @if (issueForm.get('assignedToUsername')?.value) {
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Assigned To User</mat-label>
+                  <input matInput [value]="issueForm.get('assignedToUsername')?.value" readonly>
+                </mat-form-field>
+              }
+            }
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Assigned To (General)</mat-label>
+              <input matInput formControlName="assignedTo">
+            </mat-form-field>
+
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+            <button mat-raised-button color="warn" type="button" routerLink="/issues">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="issueForm.invalid || isLoading">
+              @if (isLoading) {
+                <mat-icon>loop</mat-icon>
+              }
+              {{ isEditMode ? 'Update Issue' : 'Create Issue' }}
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    }
+  </div>
+</div>

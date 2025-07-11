@@ -1,0 +1,71 @@
+<div class="public-issue-form-container">
+  <mat-toolbar color="primary">
+    <span>Submit a New Issue</span>
+    <span class="spacer"></span>
+    <button mat-icon-button routerLink="/issues">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="form-content">
+    <form [formGroup]="publicIssueForm" (ngSubmit)="onSubmit()">
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Issue Title</mat-label>
+            <input matInput formControlName="title" required>
+            @if (publicIssueForm.get('title')?.hasError('required') && publicIssueForm.get('title')?.touched) {
+              <mat-error>
+                Title is required.
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Issue Description</mat-label>
+            <textarea matInput formControlName="description" rows="5" required></textarea>
+            @if (publicIssueForm.get('description')?.hasError('required') && publicIssueForm.get('description')?.touched) {
+              <mat-error>
+                Description is required.
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Status</mat-label>
+              <input matInput formControlName="status" readonly>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Priority</mat-label>
+              <mat-select formControlName="priority" required>
+                @for (priority of priorities; track priority) {
+                  <mat-option [value]="priority">
+                    {{priority}}
+                  </mat-option>
+                }
+              </mat-select>
+              @if (publicIssueForm.get('priority')?.hasError('required') && publicIssueForm.get('priority')?.touched) {
+                <mat-error>
+                  Priority is required.
+                </mat-error>
+              }
+            </mat-form-field>
+          </div>
+          </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button mat-raised-button color="warn" type="button" routerLink="/issues">Cancel</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="publicIssueForm.invalid || isLoading">
+            @if (isLoading) {
+              <mat-spinner diameter="20"></mat-spinner>
+            } @else {
+              Submit Issue
+            }
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+</div>

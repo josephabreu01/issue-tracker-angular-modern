@@ -1,0 +1,67 @@
+{
+  "issues": [
+    {
+      "title": "Fix login button alignment",
+      "description": "The login button is slightly off-center on mobile devices.",
+      "status": "Open",
+      "priority": "Medium",
+      "assignedTo": "generic1",
+      "assignedToUsername": "generic1",
+      "updatedAt": "2025-06-21T01:24:09.194Z",
+      "id": "1"
+    },
+    {
+      "title": "Implement user profile page",
+      "description": "Create a new page where users can view and edit their profile information.",
+      "status": "In Progress",
+      "priority": "High",
+      "assignedTo": "generic1",
+      "assignedToUsername": "generic1",
+      "updatedAt": "2025-06-21T01:19:24.968Z",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "title": "Database connection error",
+      "description": "Application crashes when attempting to connect to the production database.",
+      "status": "Critical",
+      "priority": "Critical",
+      "assignedTo": "DevOps Team",
+      "assignedToUsername": "generic1",
+      "createdAt": "2025-02-01T09:00:00Z",
+      "updatedAt": "2025-02-01T09:00:00Z"
+    },
+    {
+      "title": "New feature request: Dark Mode",
+      "description": "Users want a dark mode toggle for improved aesthetics.",
+      "status": "Open",
+      "priority": "Low",
+      "assignedTo": "generic1",
+      "assignedToUsername": "generic1",
+      "updatedAt": "2025-06-21T01:22:57.098Z",
+      "id": "4"
+    },
+    {
+      "id": "3675",
+      "title": "Prueba de roles",
+      "description": "Prueba de roles",
+      "status": "Open",
+      "priority": "Medium",
+      "assignedTo": "generic1",
+      "assignedToUsername": "generic1",
+      "createdAt": "2025-06-15T16:37:26.237Z",
+      "updatedAt": "2025-06-15T16:37:26.237Z"
+    },
+    {
+      "id": "e8cc",
+      "title": "Averia de prueba",
+      "description": "prueba de averia ",
+      "status": "Open",
+      "priority": "Low",
+      "assignedTo": "",
+      "assignedToUsername": "",
+      "createdAt": "2025-07-11T01:51:10.162Z",
+      "updatedAt": "2025-07-11T01:51:10.162Z"
+    }
+  ]
+}

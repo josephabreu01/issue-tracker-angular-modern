@@ -1,0 +1,70 @@
+.issue-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .content {
+    margin-top: 20px;
+  }
+
+  .mat-table {
+    width: 100%;
+  }
+
+  .loading-spinner, .no-issues-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: grey;
+  }
+
+  .mat-column-actions {
+    width: 20%;
+    text-align: right;
+  }
+
+  // --- Styles for Status-based Row Colors ---
+  .mat-row {
+    transition: background-color 0.3s ease-in-out; // Smooth transition for visual feedback
+
+    // Default hover effect for all rows
+    &:hover {
+      background-color: #f0f0f0; // A light grey for hover
+    }
+  }
+
+  .status-row-open {
+    background-color: #e8f5e9; // Light Green
+  }
+
+  .status-row-in-progress {
+    background-color: #e3f2fd; // Light Blue
+  }
+
+  .status-row-resolved {
+    background-color: #fffde7; // Light Yellow/Cream
+  }
+
+  .status-row-closed {
+    background-color: #ffebee; // Light Red
+  }
+
+  .status-row-critical {
+    background-color: #fce4ec; // Lighter Pink for critical
+  }
+
+  // To make text more readable on lighter backgrounds
+  .status-row-resolved,
+  .status-row-critical {
+    color: #333; // Darker text for better contrast
+  }
+
+  /* Add to src/styles.scss for global access by MatSnackBar */
+
+}
