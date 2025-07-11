@@ -66,5 +66,22 @@
   }
 
   /* Add to src/styles.scss for global access by MatSnackBar */
+/* src/app/components/issue-list/issue-list.component.scss */
 
+/* ... (previous styles) ... */
+
+/* NEW: Styles for mat-table headers */
+
+.mat-mdc-header-row {
+  background-color: #4CAF50; /* Green background for the header row */
+}
+
+.mat-mdc-header-cell {
+  color: white; /* White text for header cells for contrast */
+  font-weight: bold; /* Make header text bold */
+}
+
+/* --- END NEW TABLE HEADER STYLES --- */
+
+/* ... (rest of your existing styles) ... */
 }
