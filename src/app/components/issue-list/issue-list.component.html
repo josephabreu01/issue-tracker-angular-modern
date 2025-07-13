@@ -12,16 +12,17 @@
   <div class="content">
     <h2>Todos los Mantenimientos</h2>
 
+
     <div class="filter-section">
-      <mat-form-field appearance="outline">
-        <mat-label>Filtrar por Status</mat-label>
+  <mat-form-field appearance="outline" class="full-width-on-mobile">
+    <mat-label>Filtrar por Status</mat-label>
         <mat-select [value]="selectedStatusFilter" (selectionChange)="onStatusFilterChange($event)">
           @for (statusOption of statusFilterOptions; track statusOption) {
             <mat-option [value]="statusOption">{{statusOption}}</mat-option>
           }
         </mat-select>
       </mat-form-field>
-    </div>
+</div>
     @if (isLoading) {
       <div class="loading-spinner">
         <mat-spinner></mat-spinner>

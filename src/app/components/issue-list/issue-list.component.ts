@@ -100,7 +100,7 @@ export class IssueListComponent implements OnInit {
       return;
     }
 
-    if (confirm('Are you sure you want to delete this issue?')) {
+    if (confirm('Seguro que desea borrar este elemento ?')) {
       this.issueService.deleteIssue(id).subscribe({
         next: () => {
           this.snackBar.open('Issue deleted successfully!', 'Close', { duration: 2000 });

@@ -1,4 +1,6 @@
 @use '@angular/material' as mat;
+@import "bootstrap/scss/bootstrap.scss";
+
 @include mat.core();
 
 $myapp-theme-primary: mat.m2-define-palette(mat.$m2-green-palette, 500, 300, 700);
@@ -16,6 +18,8 @@ $myapp-theme: mat.m2-define-light-theme((
 
 @include mat.all-component-themes($myapp-theme);
 
+
+
 /* You can add global custom styles here, or import other style sheets */
 
 // Explicitly set the body background to white
@@ -23,6 +27,29 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: white; /* Ensures the main page background is white */
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .sidebar {
+    display: none;
+  }
+    .app-logo {
+    max-height: 24px; // Logo un poco más pequeño en móviles
+    margin-right: 8px; // Menos margen
+  }
+
+  .app-title {
+    font-size: 1em; // Título más pequeño en móviles
+    // Si quieres ocultar el título por completo en 'xs', descomenta la siguiente línea:
+    // display: none;
+  }
+
+  .container {
+    flex-direction: column;
+  }
 }
 
 // Custom snackbar styling (from previous steps)

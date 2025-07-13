@@ -18,3 +18,41 @@ html, body {
     margin-right: 8px;
   }
 }
+
+.spacer {
+  flex: 1 1 auto;
+}
+/* src/app/app.component.scss */
+
+// Importa las utilidades de Bootstrap si las necesitas para mixins avanzados,
+// pero la mayoría de las clases de Bootstrap se usan directamente en el HTML.
+// @import "bootstrap/scss/functions";
+// @import "bootstrap/scss/variables";
+// @import "bootstrap/scss/mixins";
+
+.sidenav-container {
+  height: 100vh;
+}
+
+.app-logo {
+  max-height: 30px; // Altura máxima para el logo
+  // El margen derecho lo maneja la clase 'me-2' de Bootstrap
+}
+
+.app-title {
+  font-size: 1.25em; // Estilo base para el título
+  white-space: nowrap; // Evita el salto de línea
+  // El control de visibilidad y el margen los manejan las clases 'd-none', 'd-md-block', 'd-md-none', 'me-auto' de Bootstrap
+}
+
+// Puedes mantener tus estilos globales que no entren en conflicto con Bootstrap
+// o usarlos para ajustes finos que Bootstrap no maneje directamente.
+// Por ejemplo, para anular el padding de mat-toolbar si fuera necesario:
+mat-toolbar {
+  padding: 0 1rem !important; // Usa 1rem para que sea consistente con el espaciado de Bootstrap
+}
+
+.container-fluid {
+  // Asegúrate de que el padding vertical sea suficiente
+  // Bootstrap ya añade padding horizontal por defecto
+}

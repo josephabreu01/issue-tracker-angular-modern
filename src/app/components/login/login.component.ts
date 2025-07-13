@@ -26,7 +26,6 @@ import { MatToolbar } from '@angular/material/toolbar';
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatToolbar
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -34,6 +33,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
+  errorMessage : any;
 
   constructor(
     private fb: FormBuilder,
@@ -74,10 +74,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/issues']); // Or /generic-dashboard
         }
       },
-      error: (err) => {
+      error: (err ) => {
         this.isLoading = false;
         // Error message handled by service snackbar, or add specific handling here
-        console.error('Login error:', err);
+        this.errorMessage = err;
       }
     });
   }

@@ -12,7 +12,7 @@ export class AuthService {
 
   // --- Mock Backend for Login and Users ---
   private mockUsers = [
-    { username: 'admin', password: 'adminpassword', role: 'admin' },
+    { username: 'admin', password: 'admin', role: 'admin' },
     { username: 'generic1', password: 'genericpassword', role: 'generic' },
     { username: 'generic2', password: 'genericpassword', role: 'generic' },
     { username: 'testuser', password: 'password', role: 'generic' } // Another generic user for testing
