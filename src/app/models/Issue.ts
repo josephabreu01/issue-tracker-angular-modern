@@ -8,4 +8,6 @@ export interface Issue {
   assignedToUsername?: string; // New field for specific user assignment
   createdAt?: Date;
   updatedAt?: Date;
+  matricula: string;
+  recinto: string;
 }

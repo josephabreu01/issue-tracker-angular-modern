@@ -40,7 +40,7 @@ import { Issue } from '../../models/Issue';
 export class IssueListComponent implements OnInit {
   issues: Issue[] = [];
   isLoading = true;
-  displayedColumns: string[] = ['title', 'status', 'priority', 'assignedToUsername', 'actions'];
+  displayedColumns: string[] = ['title', 'status', 'priority', 'assignedToUsername','matricula','recinto',  'actions'];
 
   // --- NEW: Filter properties ---
   selectedStatusFilter: string = 'Todos'; // Default filter value
@@ -74,6 +74,7 @@ export class IssueListComponent implements OnInit {
     this.issueService.getIssues(filterUsername, filterStatus).subscribe({
       next: (data) => {
         this.issues = data;
+        console.log(data)
         this.isLoading = false;
         // Check for new issues only if user is generic and has issues
         if (this.authService.isGeneric() && this.issues.length > 0) {

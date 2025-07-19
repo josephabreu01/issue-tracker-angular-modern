@@ -15,19 +15,20 @@
             <mat-label>Issue Title</mat-label>
             <input matInput formControlName="title" required>
             @if (publicIssueForm.get('title')?.hasError('required') && publicIssueForm.get('title')?.touched) {
-              <mat-error>
-                Title is required.
-              </mat-error>
+            <mat-error>
+              Title is required.
+            </mat-error>
             }
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Issue Description</mat-label>
             <textarea matInput formControlName="description" rows="5" required></textarea>
-            @if (publicIssueForm.get('description')?.hasError('required') && publicIssueForm.get('description')?.touched) {
-              <mat-error>
-                Description is required.
-              </mat-error>
+            @if (publicIssueForm.get('description')?.hasError('required') &&
+            publicIssueForm.get('description')?.touched) {
+            <mat-error>
+              Description is required.
+            </mat-error>
             }
           </mat-form-field>
 
@@ -41,27 +42,45 @@
               <mat-label>Priority</mat-label>
               <mat-select formControlName="priority" required>
                 @for (priority of priorities; track priority) {
-                  <mat-option [value]="priority">
-                    {{priority}}
-                  </mat-option>
+                <mat-option [value]="priority">
+                  {{priority}}
+                </mat-option>
                 }
               </mat-select>
               @if (publicIssueForm.get('priority')?.hasError('required') && publicIssueForm.get('priority')?.touched) {
-                <mat-error>
-                  Priority is required.
-                </mat-error>
+              <mat-error>
+                Priority is required.
+              </mat-error>
               }
             </mat-form-field>
           </div>
-          </mat-card-content>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Matrícula</mat-label>
+              <input matInput formControlName="matricula" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Recinto</mat-label>
+              <mat-select formControlName="recinto" required>
+                <mat-option></mat-option> @for (recintoOption of recintos; track recintoOption) {
+                <mat-option [value]="recintoOption">{{recintoOption}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+
+
 
         <mat-card-actions align="end">
           <button mat-raised-button color="warn" type="button" routerLink="/issues">Cancel</button>
           <button mat-raised-button color="primary" type="submit" [disabled]="publicIssueForm.invalid || isLoading">
             @if (isLoading) {
-              <mat-spinner diameter="20"></mat-spinner>
+            <mat-spinner diameter="20"></mat-spinner>
             } @else {
-              Submit Issue
+            Submit Issue
             }
           </button>
         </mat-card-actions>

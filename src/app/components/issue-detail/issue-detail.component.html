@@ -32,6 +32,12 @@
         @if (issue.updatedAt) {
         <p><strong>Last Updated:</strong> {{ issue.updatedAt | date:'medium' }}</p>
         }
+         @if (issue.matricula) {
+        <p><strong>Matricula:</strong> {{ issue.matricula }}</p>
+      }
+      @if (issue.recinto) {
+        <p><strong>Recinto:</strong> {{ issue.recinto }}</p>
+      }
       </mat-card-content>
       <mat-card-actions align="end">
         <button mat-raised-button color="accent" [routerLink]="['/issues/edit', issue.id]">

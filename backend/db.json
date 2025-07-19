@@ -7,7 +7,9 @@
       "priority": "Medium",
       "assignedTo": "generic1",
       "assignedToUsername": "generic1",
-      "updatedAt": "2025-06-21T01:24:09.194Z",
+      "matricula": "2020-1234",
+      "recinto": "Mao",
+      "updatedAt": "2025-07-18T22:43:07.746Z",
       "id": "1"
     },
     {
@@ -18,7 +20,9 @@
       "assignedTo": "generic1",
       "assignedToUsername": "generic1",
       "updatedAt": "2025-06-21T01:19:24.968Z",
-      "id": "2"
+      "id": "2",
+      "matricula": "2020-1234",
+      "recinto": "Santo Domingo"
     },
     {
       "id": "3",
@@ -29,7 +33,9 @@
       "assignedTo": "DevOps Team",
       "assignedToUsername": "generic1",
       "createdAt": "2025-02-01T09:00:00Z",
-      "updatedAt": "2025-02-01T09:00:00Z"
+      "updatedAt": "2025-02-01T09:00:00Z",
+      "matricula": "2020-1234",
+      "recinto": "Santo Domingo"
     },
     {
       "title": "New feature request: Dark Mode",
@@ -39,7 +45,9 @@
       "assignedTo": "generic1",
       "assignedToUsername": "generic1",
       "updatedAt": "2025-06-21T01:22:57.098Z",
-      "id": "4"
+      "id": "4",
+      "matricula": "2020-1234",
+      "recinto": "Santo Domingo"
     },
     {
       "id": "3675",
@@ -50,18 +58,47 @@
       "assignedTo": "generic1",
       "assignedToUsername": "generic1",
       "createdAt": "2025-06-15T16:37:26.237Z",
-      "updatedAt": "2025-06-15T16:37:26.237Z"
+      "updatedAt": "2025-06-15T16:37:26.237Z",
+      "matricula": "2020-1234",
+      "recinto": "Santo Domingo"
     },
     {
-      "id": "e8cc",
       "title": "Averia de prueba",
       "description": "prueba de averia ",
       "status": "Open",
       "priority": "Low",
       "assignedTo": "",
       "assignedToUsername": "",
-      "createdAt": "2025-07-11T01:51:10.162Z",
-      "updatedAt": "2025-07-11T01:51:10.162Z"
+      "matricula": "2020-1234",
+      "recinto": "Mao",
+      "updatedAt": "2025-07-18T22:38:07.241Z",
+      "id": "e8cc"
+    },
+    {
+      "id": "a344",
+      "title": "Test mattri",
+      "description": "test",
+      "status": "Open",
+      "priority": "Medium",
+      "assignedTo": "generic1",
+      "assignedToUsername": "generic1",
+      "matricula": "2142134",
+      "recinto": "Santo Domingo Oriental",
+      "createdAt": "2025-07-18T22:47:12.121Z",
+      "updatedAt": "2025-07-18T22:47:12.122Z"
+    },
+    {
+      "id": "429c",
+      "title": "test sin login",
+      "description": "test sin login",
+      "status": "Open",
+      "priority": "Medium",
+      "assignedTo": "",
+      "assignedToUsername": "",
+      "matricula": "123",
+      "recinto": "Santo Domingo Oriental",
+      "createdAt": "2025-07-18T23:00:00.293Z",
+      "updatedAt": "2025-07-18T23:00:00.293Z"
     }
   ]
 }

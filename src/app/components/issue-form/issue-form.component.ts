@@ -48,6 +48,19 @@ export class IssueFormComponent implements OnInit {
   statuses = ['Open', 'In Progress', 'Resolved', 'Closed'];
   priorities = ['Low', 'Medium', 'High', 'Critical'];
   genericUsernames: string[] = []; // New property to hold generic usernames
+  recintos: string[] = [
+    'Sede - Santiago',
+    'Santo Domingo de Guzmán',
+    'Santo Domingo Oriental',
+    'Mao',
+    'Puerto Plata',
+    'Moca',
+    'Dajabón',
+    'Gaspar Hernández',
+    'Escuela de Graduados - Sede',
+    'Escuela de Graduados - Santo Domingo'
+  ];
+
 
   constructor(
     private fb: FormBuilder,
@@ -63,7 +76,9 @@ export class IssueFormComponent implements OnInit {
       status: ['Open', Validators.required],
       priority: ['Medium', Validators.required],
       assignedTo: [''], // Existing field
-      assignedToUsername: [''] // New field for user assignment
+      assignedToUsername: [''] ,// New field for user assignment
+      matricula:[''],
+      recinto: [''],
     });
   }
 

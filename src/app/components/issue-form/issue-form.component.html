@@ -92,10 +92,27 @@
                 </mat-form-field>
               }
             }
-            <mat-form-field appearance="outline" class="full-width">
+            <!-- <mat-form-field appearance="outline" class="full-width">
               <mat-label>Assigned To (General)</mat-label>
               <input matInput formControlName="assignedTo">
+            </mat-form-field> -->
+            <div class="form-row">
+              <mat-form-field  appearance="outline" class="half-width">
+              <mat-label>Matricula</mat-label>
+              <input matInput formControlName="matricula" required>
             </mat-form-field>
+
+            <mat-form-field  appearance="outline" class="half-width">
+              <mat-label>Recinto</mat-label>
+              <mat-select formControlName="recinto" required>
+                <mat-option></mat-option>
+                @for (recintoOption of recintos; track recintoOption) {
+                  <mat-option [value]="recintoOption">{{recintoOption}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            </div>
+            
 
           </mat-card-content>
 

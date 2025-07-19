@@ -45,6 +45,19 @@ export class PublicIssueFormComponent implements OnInit {
   statuses = ['Open']; // Only 'Open'
   priorities = ['Low', 'Medium']; // Restricted priorities
 
+  recintos: string[] = [
+    'Sede - Santiago',
+    'Santo Domingo de Guzmán',
+    'Santo Domingo Oriental',
+    'Mao',
+    'Puerto Plata',
+    'Moca',
+    'Dajabón',
+    'Gaspar Hernández',
+    'Escuela de Graduados - Sede',
+    'Escuela de Graduados - Santo Domingo'
+  ];
+
   constructor(
     private fb: FormBuilder,
     private issueService: IssueService,
@@ -58,7 +71,9 @@ export class PublicIssueFormComponent implements OnInit {
       priority: ['Medium', Validators.required], // Default to Medium
       // Public users cannot assign issues
       assignedTo: [''], // Optional, can be left empty for public
-      assignedToUsername: [''] // Optional, can be left empty for public
+      assignedToUsername: [''], // Optional, can be left empty for public
+      matricula:[''],
+      recinto:['']
     });
   }
 
@@ -93,7 +108,7 @@ export class PublicIssueFormComponent implements OnInit {
     this.issueService.createIssue(issue).subscribe({
       next: () => {
         this.snackBar.open('Issue submitted successfully! We will review it shortly.', 'Close', { duration: 4000 });
-        this.router.navigate(['/issues']); // Redirect to the main issues list (which they won't see if not logged in)
+        this.router.navigate(['/login']); // Redirect to the main issues list (which they won't see if not logged in)
       },
       error: (err) => {
         console.error('Error submitting issue:', err);
