@@ -1,34 +1,109 @@
-<mat-toolbar color="primary">
-    <img src="image.png" alt="App Logo" class="app-logo">
-  <a routerLink="/issues" class="app-title-link">
-    <span>
-      Laboratorios UTESA</span>
-  </a>
-  
-  <span class="spacer"></span>
-  @if (authService.isLoggedIn()) {
-  <span class="welcome-message" style="margin-left: 1%;">
-    Usuario: {{ authService.currentUser()?.username }}
-  </span>
-  <button mat-button (click)="authService.logout()">
-    <mat-icon>logout</mat-icon> Logout
-  </button>
-  } @else {
-  <span class="spacer"></span>
-  <button mat-button routerLink="/login">
-    <mat-icon>login</mat-icon> Login
-  </button>
-  
-<div style="margin-left: auto;"></div>
-    <span>Reportar una averia sin usurio</span>
-    <button style="margin-left: 2%;" mat-raised-button color="accent" routerLink="/submit-issue">
-      <mat-icon>add</mat-icon> Nueva averia 
-    </button>
-  
-  }
-</mat-toolbar>
+<!--<mat-toolbar color="primary">-->
+
+<!--    <img src="image.png" alt="App Logo" class="app-logo">-->
+<!--  <a routerLink="/issues" class="app-title-link">-->
+<!--    <span>-->
+<!--      Laboratorios UTESA</span>-->
+<!--  </a>-->
+
+<!--  <span class="spacer"></span>-->
+<!--  @if (authService.isLoggedIn()) {-->
+<!--  <span class="welcome-message" style="margin-left: 1%;">-->
+<!--    Usuario: {{ authService.currentUser()?.username }}-->
+<!--  </span>-->
+<!--  <button mat-button (click)="authService.logout()">-->
+<!--    <mat-icon>logout</mat-icon> Logout-->
+<!--  </button>-->
+<!--  } @else {-->
+<!--  <span class="spacer"></span>-->
+<!--  <button mat-button routerLink="/login">-->
+<!--    <mat-icon>login</mat-icon> Login-->
+<!--  </button>-->
+
+<!--<div style="margin-left: auto;"></div>-->
+<!--    <span>Reportar una averia sin usurio</span>-->
+<!--    <button style="margin-left: 2%;" mat-raised-button color="accent" routerLink="/submit-issue">-->
+<!--      <mat-icon>add</mat-icon> Nueva averia-->
+<!--    </button>-->
+
+<!--  }-->
+<!--</mat-toolbar>-->
 
 
-<div class="main-content">
-  <router-outlet></router-outlet>
-</div>
+<!--<div class="main-content">-->
+<!--  <router-outlet></router-outlet>-->
+<!--</div>-->
+
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #sidenav mode="over" [fixedInViewport]="true" [fixedTopGap]="56">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/issues" (click)="sidenav.close()">
+        <mat-icon matListItemIcon>list</mat-icon>
+        <span matListItemTitle>Mantenimientos</span>
+      </a>
+      <a mat-list-item routerLink="/charts" (click)="sidenav.close()">
+        <mat-icon matListItemIcon>pie_chart</mat-icon>
+        <span matListItemTitle>Estadísticas</span>
+      </a>
+      @if (authService.isAdmin()) {
+        <a mat-list-item routerLink="/issues/new" (click)="sidenav.close()">
+          <mat-icon matListItemIcon>add_circle_outline</mat-icon>
+          <span matListItemTitle>Nuevo Mantenimiento</span>
+        </a>
+      }
+      @if (authService.isLoggedIn()) {
+        <mat-divider></mat-divider>
+        <a mat-list-item (click)="authService.logout(); sidenav.close()">
+          <mat-icon matListItemIcon>logout</mat-icon>
+          <span matListItemTitle>Logout ({{ authService.currentUser()?.username }})</span>
+        </a>
+      } @else {
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/login" (click)="sidenav.close()">
+          <mat-icon matListItemIcon>login</mat-icon>
+          <span matListItemTitle>Login</span>
+        </a>
+        <a mat-list-item routerLink="/submit-issue" (click)="sidenav.close()">
+          <mat-icon matListItemIcon>add</mat-icon>
+          <span matListItemTitle>Reportar Avería (Público)</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+@if (authService.isLoggedIn()) {}
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()" class="d-md-none me-2" matTooltip="Open menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <img src="image.png" alt="App Logo" class="app-logo me-2">
+      <a routerLink="/issues" class="app-title-link">
+        <span >Laboratorios UTESA</span>  </a>
+
+
+
+      <span class="spacer d-none d-md-block"></span> @if (authService.isLoggedIn()) {
+      <span class="welcome-message d-none d-md-inline" style="margin-left: 1%;">
+          Usuario: {{ authService.currentUser()?.username }}
+        </span>
+      <button mat-button (click)="authService.logout()" matTooltip="Logout">
+        <mat-icon>logout</mat-icon> Logout
+      </button>
+    } @else {
+      <button mat-button routerLink="/login" class="d-none d-md-inline" matTooltip="Login">
+        <mat-icon>login</mat-icon> Login
+      </button>
+
+      <button style="margin-left: 10px;" mat-raised-button color="accent" routerLink="/submit-issue" class="d-none d-md-inline" matTooltip="Report new issue">
+        <mat-icon>add</mat-icon> Nueva avería sin Usuario
+      </button>
+    }
+    </mat-toolbar>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

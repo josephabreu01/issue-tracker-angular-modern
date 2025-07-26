@@ -58,8 +58,29 @@ export class IssueFormComponent implements OnInit {
     'Dajabón',
     'Gaspar Hernández',
     'Escuela de Graduados - Sede',
-    'Escuela de Graduados - Santo Domingo'
+    'Escuela de Graduados - Santo Domingo',
+    'Santo Domingo (Coral Mall)',
+    'Santo Domingo (Herrera)'
   ];
+
+  asinedTos: string[] = [
+    'Técnico 1',
+    'Técnico 2',
+    'Técnico 3',
+    'Técnico 4',
+  ]
+
+  titles: string[] = [
+    'Eléctrica-Energía',
+    'Climatización-ventilación',
+    'Tecnológica-Equipos',
+    'Equipos de laboratorio',
+    'Infraestructura',
+    'Red y comunicaciones',
+    'Sanitarios-generales',
+    'Seguridad',
+    'Otro (especificar)'
+  ]
 
 
   constructor(
@@ -75,9 +96,9 @@ export class IssueFormComponent implements OnInit {
       description: ['', Validators.required],
       status: ['Open', Validators.required],
       priority: ['Medium', Validators.required],
-      assignedTo: [''], // Existing field
-      assignedToUsername: [''] ,// New field for user assignment
-      matricula:[''],
+      tecnico: [''], // Existing field
+      assignedToUsername: [''],// New field for user assignment
+      matricula: [''],
       recinto: [''],
     });
   }
@@ -172,14 +193,14 @@ export class IssueFormComponent implements OnInit {
   }
 
   private disableNonStatusFields(): void {
-  // Loop through all controls in the issueForm FormGroup
-  Object.keys(this.issueForm.controls).forEach(key => {
-    const control = this.issueForm.get(key); // Get the form control by its name (e.g., 'title', 'description')
+    // Loop through all controls in the issueForm FormGroup
+    Object.keys(this.issueForm.controls).forEach(key => {
+      const control = this.issueForm.get(key); // Get the form control by its name (e.g., 'title', 'description')
 
-    // If the control exists AND its name is NOT 'status'
-    if (control && key !== 'status') {
-      control.disable(); // Disable this form control
-    }
-  });
-}
+      // If the control exists AND its name is NOT 'status'
+      if (control && key !== 'status') {
+        control.disable(); // Disable this form control
+      }
+    });
+  }
 }

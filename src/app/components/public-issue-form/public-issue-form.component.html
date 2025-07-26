@@ -12,8 +12,14 @@
       <mat-card>
         <mat-card-content>
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Issue Title</mat-label>
-            <input matInput formControlName="title" required>
+            <mat-label>Titulo</mat-label>
+            <mat-select matInput formControlName="title" required>
+              @for (title of titles; track title) {
+              <mat-option [value]="title">
+                {{title}}
+              </mat-option>
+              }
+            </mat-select>
             @if (publicIssueForm.get('title')?.hasError('required') && publicIssueForm.get('title')?.touched) {
             <mat-error>
               Title is required.
@@ -22,7 +28,7 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Issue Description</mat-label>
+            <mat-label>Descripcion</mat-label>
             <textarea matInput formControlName="description" rows="5" required></textarea>
             @if (publicIssueForm.get('description')?.hasError('required') &&
             publicIssueForm.get('description')?.touched) {
@@ -34,12 +40,12 @@
 
           <div class="form-row">
             <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Status</mat-label>
+              <mat-label>Estatus</mat-label>
               <input matInput formControlName="status" readonly>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Priority</mat-label>
+              <mat-label>Prioridad</mat-label>
               <mat-select formControlName="priority" required>
                 @for (priority of priorities; track priority) {
                 <mat-option [value]="priority">
@@ -56,10 +62,14 @@
           </div>
 
           <div class="form-row">
-            <mat-form-field appearance="outline" class="half-width">
-              <mat-label>Matrícula</mat-label>
-              <input matInput formControlName="matricula" required>
-            </mat-form-field>
+            <!-- <mat-form-field appearance="outline" class="half-width">
+              <mat-label>Personal responsable</mat-label>
+              <mat-select formControlName="tecnico" required>
+                @for (asigned of asinedTos; track asigned) {
+                <mat-option [value]="asigned">{{asigned}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field> -->
 
             <mat-form-field appearance="outline" class="half-width">
               <mat-label>Recinto</mat-label>
@@ -75,13 +85,13 @@
 
 
         <mat-card-actions align="end">
-          <button mat-raised-button color="warn" type="button" routerLink="/issues">Cancel</button>
-          <button mat-raised-button color="primary" type="submit" [disabled]="publicIssueForm.invalid || isLoading">
+          <button mat-raised-button color="warn" type="button" routerLink="/issues">Cancelar</button>
+          <button style="margin-left: 5px;" mat-raised-button color="primary" type="submit"
+            [disabled]="publicIssueForm.invalid || isLoading">
             @if (isLoading) {
             <mat-spinner diameter="20"></mat-spinner>
-            } @else {
-            Submit Issue
             }
+            Crear
           </button>
         </mat-card-actions>
       </mat-card>

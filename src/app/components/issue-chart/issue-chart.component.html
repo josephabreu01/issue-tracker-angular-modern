@@ -1,0 +1,30 @@
+<div class="chart-page-container">
+  <mat-toolbar color="primary" class="chart-toolbar">
+    <mat-icon>leaderboard</mat-icon>
+    <span>Estadísticas de Mantenimientos por Estado</span>
+  </mat-toolbar>
+
+  <mat-card class="chart-card mat-elevation-z8">
+    <mat-card-header>
+      <mat-card-title>Distribución de Mantenimientos</mat-card-title>
+      <mat-card-subtitle>Incidencias actuales por estado</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      @if (isLoading) {
+        <div class="loading-spinner-chart">
+          <mat-spinner></mat-spinner>
+          <p>Cargando datos de la gráfica...</p>
+        </div>
+      } @else if (hasNoChartData) {
+        <div class="no-data-message">
+          <p>No hay datos disponibles para mostrar en la gráfica.</p>
+          <p>Asegúrate de que existan mantenimientos.</p>
+        </div>
+      } @else {
+        <div class="chart-wrapper">
+          <canvasjs-chart  [options]="chartOptions"></canvasjs-chart>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

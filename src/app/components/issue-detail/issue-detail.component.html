@@ -20,21 +20,22 @@
         <mat-card-subtitle>ID: {{ issue.id }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <p><strong>Description:</strong> {{ issue.description }}</p>
-        <p><strong>Status:</strong> <span class="status-badge status-{{issue.status | lowercase}}">{{ issue.status
+        <p><strong>Descripcion:</strong> {{ issue.description }}</p>
+        <p><strong>Estatus:</strong> <span class="status-badge status-{{issue.status | lowercase}}">{{ issue.status
             }}</span></p>
-        <p><strong>Priority:</strong> <span class="priority-badge priority-{{issue.priority | lowercase}}">{{
+        <p><strong>Prioridad:</strong> <span class="priority-badge priority-{{issue.priority | lowercase}}">{{
             issue.priority }}</span></p>
-        <p><strong>Assigned To:</strong> {{ issue.assignedTo || 'Unassigned' }}</p>
+        <p><strong>Assignado a Usuario:</strong> {{ issue.assignedToUsername }}</p>
+        <p><strong>Tecnico:</strong> {{ issue.tecnico }}</p>
         @if (issue.createdAt) {
-        <p><strong>Created At:</strong> {{ issue.createdAt | date:'medium' }}</p>
+        <p><strong>Creado:</strong> {{ issue.createdAt | date:'medium' }}</p>
         }
         @if (issue.updatedAt) {
-        <p><strong>Last Updated:</strong> {{ issue.updatedAt | date:'medium' }}</p>
+        <p><strong>Actulizado:</strong> {{ issue.updatedAt | date:'medium' }}</p>
         }
-         @if (issue.matricula) {
+         <!-- @if (issue.matricula) {
         <p><strong>Matricula:</strong> {{ issue.matricula }}</p>
-      }
+      } -->
       @if (issue.recinto) {
         <p><strong>Recinto:</strong> {{ issue.recinto }}</p>
       }

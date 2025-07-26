@@ -7,7 +7,7 @@ import { Issue } from '../models/Issue';
   providedIn: 'root'
 })
 export class IssueService {
-  private apiUrl = 'https://json-server-q8vc.onrender.com/issues';
+  private apiUrl = 'http://localhost:3000/issues';
 
   constructor(private http: HttpClient) {}
 
@@ -30,12 +30,9 @@ export class IssueService {
   }
 
   createIssue(issue: Issue): Observable<Issue> {
-    if (!issue.createdAt) {
-      issue.createdAt = new Date();
-    }
-    issue.updatedAt = new Date();
+    issue.createdAt = new Date();
     if (issue.assignedToUsername) { // Ensure assignedTo is set from assignedToUsername for JSON-server
-      issue.assignedTo = issue.assignedToUsername;
+      issue.tecnico = issue.tecnico;
     }
     return this.http.post<Issue>(this.apiUrl, issue);
   }
@@ -44,7 +41,7 @@ export class IssueService {
     issue.updatedAt = new Date();
     // If assignedToUsername is part of the update (e.g., from admin), ensure assignedTo is consistent
     if (issue.assignedToUsername !== undefined) {
-      issue.assignedTo = issue.assignedToUsername || '';
+      issue.tecnico = issue.tecnico || '';
     }
     return this.http.put<Issue>(`${this.apiUrl}/${id}`, issue);
   }

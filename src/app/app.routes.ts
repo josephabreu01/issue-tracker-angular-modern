@@ -6,6 +6,7 @@ import { IssueFormComponent } from './components/issue-form/issue-form.component
 import { LoginComponent } from './components/login/login.component';
 import { PublicIssueFormComponent } from './components/public-issue-form/public-issue-form.component'; // Import the new component
 import { authGuard } from './guards/auth.guard';
+import {IssueChartComponent} from './components/issue-chart/issue-chart.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/issues', pathMatch: 'full' },
@@ -31,5 +32,11 @@ export const routes: Routes = [
     component: IssueDetailComponent,
     canActivate: [authGuard]
   },
+  {
+    path :'charts',
+    component:IssueChartComponent,
+    canActivate: [authGuard]
+  },
+  {path:'',redirectTo:'/issues',pathMatch:'full'},
   { path: '**', redirectTo: '/issues' }
 ];

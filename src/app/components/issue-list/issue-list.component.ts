@@ -40,7 +40,7 @@ import { Issue } from '../../models/Issue';
 export class IssueListComponent implements OnInit {
   issues: Issue[] = [];
   isLoading = true;
-  displayedColumns: string[] = ['title', 'status', 'priority', 'assignedToUsername','matricula','recinto',  'actions'];
+  displayedColumns: string[] = ['title', 'status', 'priority', 'assignedToUsername','recinto','tecnico','actions'];
 
   // --- NEW: Filter properties ---
   selectedStatusFilter: string = 'Todos'; // Default filter value

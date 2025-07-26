@@ -40,28 +40,28 @@
     } @else {
       <table mat-table [dataSource]="issues" class="mat-elevation-z8">
         <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <th mat-header-cell *matHeaderCellDef> Titulo </th>
           <td mat-cell *matCellDef="let issue"> {{issue.title}} </td>
         </ng-container>
 
         <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <th mat-header-cell *matHeaderCellDef> Estatus </th>
           <td mat-cell *matCellDef="let issue"> {{issue.status}} </td>
         </ng-container>
 
         <ng-container matColumnDef="priority">
-          <th mat-header-cell *matHeaderCellDef> Priority </th>
+          <th mat-header-cell *matHeaderCellDef> Prioridad </th>
           <td mat-cell *matCellDef="let issue"> {{issue.priority}} </td>
         </ng-container>
 
         <ng-container matColumnDef="assignedToUsername">
-          <th mat-header-cell *matHeaderCellDef> Assigned To User </th>
+          <th mat-header-cell *matHeaderCellDef> Asignado a Usuario</th>
           <td mat-cell *matCellDef="let issue"> {{issue.assignedToUsername || 'Unassigned'}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="matricula">
-          <th mat-header-cell *matHeaderCellDef> Matricula </th>
-          <td mat-cell *matCellDef="let issue"> {{issue.matricula || 'N/A'}} </td>
+        <ng-container matColumnDef="tecnico">
+          <th mat-header-cell *matHeaderCellDef> Tecnico </th>
+          <td mat-cell *matCellDef="let issue"> {{issue.tecnico || 'N/A'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="recinto">
@@ -71,7 +71,7 @@
 
 
         <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
           <td mat-cell *matCellDef="let issue">
             <button mat-icon-button color="primary" [routerLink]="['/issues', issue.id]">
               <mat-icon>visibility</mat-icon>

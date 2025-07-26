@@ -55,8 +55,29 @@ export class PublicIssueFormComponent implements OnInit {
     'Dajabón',
     'Gaspar Hernández',
     'Escuela de Graduados - Sede',
-    'Escuela de Graduados - Santo Domingo'
+    'Escuela de Graduados - Santo Domingo',
+    'Santo Domingo (Coral Mall)',
+    'Santo Domingo (Herrera)'
   ];
+
+   asinedTos: string[] = [
+    'Técnico 1',
+    'Técnico 2',
+    'Técnico 3',
+    'Técnico 4',
+  ]
+
+    titles: string[] = [
+    'Eléctrica-Energía',
+    'Climatización-ventilación',
+    'Tecnológica-Equipos',
+    'Equipos de laboratorio',
+    'Infraestructura',
+    'Red y comunicaciones',
+    'Sanitarios-generales',
+    'Seguridad',
+    'Otro (especificar)'
+  ]
 
   constructor(
     private fb: FormBuilder,
@@ -70,7 +91,7 @@ export class PublicIssueFormComponent implements OnInit {
       status: ['Open', Validators.required], // Default to Open
       priority: ['Medium', Validators.required], // Default to Medium
       // Public users cannot assign issues
-      assignedTo: [''], // Optional, can be left empty for public
+      tecnico: [''], // Optional, can be left empty for public
       assignedToUsername: [''], // Optional, can be left empty for public
       matricula:[''],
       recinto:['']
@@ -102,7 +123,7 @@ export class PublicIssueFormComponent implements OnInit {
       issue.priority = 'Medium'; // Default to medium if somehow invalid
     }
     // Clear assignment fields, public users cannot assign
-    issue.assignedTo = '';
+    issue.tecnico = '';
     issue.assignedToUsername = '';
 
     this.issueService.createIssue(issue).subscribe({

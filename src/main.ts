@@ -15,6 +15,7 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(withInterceptors([authInterceptor])),
     // Provide router with the defined routes
     provideRouter(routes),
+    
     // Provide animations for Material components
   ]
 }).catch(err => console.error(err));
