@@ -43,7 +43,7 @@ export class PublicIssueFormComponent implements OnInit {
 
   // Public users can only submit 'Open' issues with 'Low' or 'Medium' priority
   statuses = ['Open']; // Only 'Open'
-  priorities = ['Low', 'Medium']; // Restricted priorities
+  priorities = ['Low', 'Medium', 'High', 'Critical'];
 
   recintos: string[] = [
     'Sede - Santiago',

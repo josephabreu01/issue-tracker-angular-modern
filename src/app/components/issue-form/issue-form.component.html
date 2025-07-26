@@ -81,7 +81,7 @@
 
           @if (authService.isAdmin()) {
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Usuario asignado</mat-label>
+            <mat-label>Departamento asignado</mat-label>
             <mat-select formControlName="assignedToUsername" required>
               <mat-option value="">Unassigned</mat-option> @for (username of genericUsernames; track username) {
               <mat-option [value]="username">
