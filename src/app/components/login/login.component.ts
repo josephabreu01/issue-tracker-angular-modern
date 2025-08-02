@@ -69,9 +69,9 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
         // Navigate based on role or to a default dashboard
         if (user.role === 'admin') {
-          this.router.navigate(['/issues']); // Or /admin-dashboard
+          this.router.navigate(['/charts']); // Or /admin-dashboard
         } else {
-          this.router.navigate(['/issues']); // Or /generic-dashboard
+          this.router.navigate(['/charts']); // Or /generic-dashboard
         }
       },
       error: (err ) => {

@@ -7,7 +7,7 @@ import { Issue } from '../models/Issue';
   providedIn: 'root'
 })
 export class IssueService {
-  private apiUrl = 'https://json-server-q8vc.onrender.com/issues';
+  private apiUrl = 'http://localhost:3000/issues';
 
   constructor(private http: HttpClient) {}
 

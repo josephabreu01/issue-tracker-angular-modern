@@ -61,7 +61,7 @@ export class IssueChartComponent implements OnInit {
   updateChartData(): void {
     const counts: { [key: string]: number } = {};
     // Inicializa los conteos para todos los estados posibles
-    ['Open', 'In Progress', 'Resolved', 'Closed'].forEach(status => {
+    ['Abierto', 'En Progreso', 'Resuelto', 'Cerrado'].forEach(status => {
       counts[status] = 0;
     });
 
@@ -107,10 +107,10 @@ export class IssueChartComponent implements OnInit {
   // Función auxiliar para obtener colores consistentes por estado
   getStatusColor(status: string): string {
     switch (status) {
-      case 'Open': return '#FF6384'; // Rojo claro
-      case 'In Progress': return '#36A2EB'; // Azul claro
-      case 'Resolved': return '#4BC0C0'; // Verde azulado
-      case 'Closed': return '#9966FF'; // Púrpura
+      case 'Abierto': return '#FF6384'; // Rojo claro
+      case 'En Progreso': return '#36A2EB'; // Azul claro
+      case 'Resuelto': return '#4BC0C0'; // Verde azulado
+      case 'Cerrado': return '#9966FF'; // Púrpura
       default: return '#FFCD56'; // Amarillo (por defecto)
     }
   }

@@ -44,7 +44,7 @@ export class IssueListComponent implements OnInit {
 
   // --- NEW: Filter properties ---
   selectedStatusFilter: string = 'Todos'; // Default filter value
-  statusFilterOptions: string[] = ['Todos', 'Open', 'In Progress', 'Resolved', 'Closed']; // Options for the dropdown
+  statusFilterOptions: string[] = ['Todos', 'Abierto', 'En Progreso', 'Resuelto', 'Cerrado']; // Options for the dropdown
 
   constructor(
     private issueService: IssueService,

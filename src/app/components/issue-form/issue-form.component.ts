@@ -45,8 +45,8 @@ export class IssueFormComponent implements OnInit {
   isEditMode = false;
   isLoading = false;
 
-  statuses = ['Open', 'In Progress', 'Resolved', 'Closed'];
-  priorities = ['Low', 'Medium', 'High', 'Critical'];
+  statuses = ['Abierto', 'En Progreso', 'Resuelto', 'Cerrado'];
+  priorities = ['Baja', 'Media', 'Alta', 'Critica'];
   genericUsernames: string[] = []; // New property to hold generic usernames
   recintos: string[] = [
     'Sede - Santiago',

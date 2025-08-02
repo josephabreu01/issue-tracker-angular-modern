@@ -9,7 +9,7 @@ import { authGuard } from './guards/auth.guard';
 import {IssueChartComponent} from './components/issue-chart/issue-chart.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/issues', pathMatch: 'full' },
+  { path: '', redirectTo: '/charts', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'submit-issue', component: PublicIssueFormComponent }, // Public route for submitting issues
   {
@@ -37,6 +37,6 @@ export const routes: Routes = [
     component:IssueChartComponent,
     canActivate: [authGuard]
   },
-  {path:'',redirectTo:'/issues',pathMatch:'full'},
-  { path: '**', redirectTo: '/issues' }
+  {path:'',redirectTo:'/charts',pathMatch:'full'},
+  { path: '**', redirectTo: '/charts' }
 ];

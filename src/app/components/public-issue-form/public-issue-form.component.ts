@@ -42,8 +42,8 @@ export class PublicIssueFormComponent implements OnInit {
   isLoading = false;
 
   // Public users can only submit 'Open' issues with 'Low' or 'Medium' priority
-  statuses = ['Open']; // Only 'Open'
-  priorities = ['Low', 'Medium', 'High', 'Critical'];
+  statuses = ['Abierto']; // Only 'Open'
+  priorities = ['Baja', 'Media', 'Alta', 'Critica'];
 
   recintos: string[] = [
     'Sede - Santiago',
@@ -88,8 +88,8 @@ export class PublicIssueFormComponent implements OnInit {
     this.publicIssueForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      status: ['Open', Validators.required], // Default to Open
-      priority: ['Medium', Validators.required], // Default to Medium
+      status: ['Abierto', Validators.required], // Default to Open
+      priority: ['Media', Validators.required], // Default to Medium
       // Public users cannot assign issues
       tecnico: [''], // Optional, can be left empty for public
       assignedToUsername: [''], // Optional, can be left empty for public
@@ -118,9 +118,9 @@ export class PublicIssueFormComponent implements OnInit {
     issue.updatedAt = new Date();
 
     // Ensure status and priority are locked to public options if not already
-    issue.status = 'Open';
+    issue.status = 'Abierto';
     if (!['Low', 'Medium'].includes(issue.priority)) {
-      issue.priority = 'Medium'; // Default to medium if somehow invalid
+      issue.priority = 'Media'; // Default to medium if somehow invalid
     }
     // Clear assignment fields, public users cannot assign
     issue.tecnico = '';
